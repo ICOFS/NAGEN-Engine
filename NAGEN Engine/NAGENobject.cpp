@@ -37,9 +37,39 @@ void NAGENobject::moveStraight(double length) {
 };
 
 
-void NAGENobject::rotate(double phi, double theta) {
+void NAGENobject::rotate(double theta, double phi) {
     double circle = Pi*2;
     phiAngle = std::fmod(phiAngle+phi, circle);
     thetaAngle = std::fmod(thetaAngle+theta, circle);
 };
 
+
+void NAGENobject::EarthGravityDemo() {
+    int Time = 0;
+    
+    while (Time < 100) {
+        std::cout << Time << std::endl;
+        
+        std::cout << "x: " << xCoordinate << " " << xSpeed << std::endl;
+        std::cout << "y: " << yCoordinate << " " << ySpeed << std::endl;
+        std::cout << "z: " << zCoordinate << " " << zSpeed << std::endl;
+        
+        Time++;
+        
+        double zCoordinateOld = zCoordinate;
+        
+        zSpeed += EarthG;
+        
+        if (zCoordinate-zSize <= 0) {
+            zSpeed = 0;
+        }
+        
+        zCoordinate -= zSpeed;
+        
+        if (zCoordinate < 0.5) {
+            zCoordinate = 0.5;
+        }
+        
+        zSpeed = zCoordinateOld - zCoordinate;
+    }
+}

@@ -9,7 +9,41 @@
 #define NAGENobject_hpp
 
 #include <stdio.h>
+#include <vector>
 
+
+/**
+    The base class of the object.
+ 
+ double xCoordinate — x coordinate relative to the center of the world
+ 
+ double yCoordinate — y coordinate relative to the center of the world
+ 
+ double zCoordinate — z coordinate relative to the center of the world
+ 
+ 
+ double thetaAngle — Zenith angle value
+ 
+ double phiAngle — Azimuth angle value
+ 
+ 
+ double xSize — The size of the object along the OX axis from the center of mass
+ 
+ double ySize — The size of the object along the OY axis from the center of mass
+ 
+ double zSize — The size of the object along the OZ axis from the center of mass
+ 
+ 
+ double mass — Object mass value
+ 
+ 
+ double xSpeed — Local x-axis velocity value
+ 
+ double ySpeed — Local y-axis velocity value
+ 
+ double zSpeed — Local z-axis velocity value
+ 
+ */
 class NAGENobject {
 public:
     double xCoordinate;
@@ -25,8 +59,41 @@ public:
     
     double mass;
     
+    double xSpeed;
+    double ySpeed;
+    double zSpeed;
+    
+    
+    /**
+     This function demonstrates the movement of a body along the Oz axis.
+      
+     * @param
+     length Value in meters. Moves the object n meters forward along the oZ axis. Allows negative values.
+     */
     void moveStraight(double length);
-    void rotate(double phi, double theta);
+    
+    /**
+     This function demonstrates the rotation of the body.
+      
+     * @param
+     
+     theta Value in radians. Zenith angle of rotation. Allows negative values.
+     
+     * @param
+     phi Value in radians. Azimuthal rotation angle. Allows negative values.
+     
+     
+     */
+    void rotate(double theta, double phi);
+    
+    /**
+     This function demonstrates a body falling from a height.
+
+     Values such as speed and body position are displayed for each second separately.
+
+     The function does not take into account air resistance.
+     */
+    void EarthGravityDemo();
 };
 
 #endif /* NAGENobject_hpp */

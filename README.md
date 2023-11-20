@@ -1,4 +1,4 @@
-#  Open-source game "Not a good enough name" (or "NAGEN") engine
+#  Open-source game engine "Not a good enough name" (or "NAGEN")
 
  
 

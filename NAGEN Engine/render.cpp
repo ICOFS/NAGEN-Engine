@@ -7,6 +7,8 @@
 
 #include "render.hpp"
 /*
+ // Apple code:
+ 
 #include <cassert>
 
 #define NS_PRIVATE_IMPLEMENTATION

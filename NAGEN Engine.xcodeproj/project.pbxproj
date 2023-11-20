@@ -13,6 +13,7 @@
 		612C42BE2B0A4A1F002703F8 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612C42BD2B0A4A1F002703F8 /* MetalKit.framework */; };
 		612C42C12B0A4C79002703F8 /* NAGENobject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 612C42BF2B0A4C79002703F8 /* NAGENobject.cpp */; };
 		612C42C52B0A616B002703F8 /* render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 612C42C32B0A616B002703F8 /* render.cpp */; };
+		61FFAFFE2B0BA03000AF44F7 /* Blank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFAFFD2B0BA03000AF44F7 /* Blank.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -134,6 +135,8 @@
 		612C42C22B0A56BB002703F8 /* globalConsts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = globalConsts.h; sourceTree = "<group>"; };
 		612C42C32B0A616B002703F8 /* render.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = render.cpp; sourceTree = "<group>"; };
 		612C42C42B0A616B002703F8 /* render.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = render.hpp; sourceTree = "<group>"; };
+		61FFAFFC2B0BA03000AF44F7 /* NAGEN Engine-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NAGEN Engine-Bridging-Header.h"; sourceTree = "<group>"; };
+		61FFAFFD2B0BA03000AF44F7 /* Blank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blank.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +183,8 @@
 				612C42C22B0A56BB002703F8 /* globalConsts.h */,
 				612C42BF2B0A4C79002703F8 /* NAGENobject.cpp */,
 				612C42C02B0A4C79002703F8 /* NAGENobject.hpp */,
+				61FFAFFC2B0BA03000AF44F7 /* NAGEN Engine-Bridging-Header.h */,
+				61FFAFFD2B0BA03000AF44F7 /* Blank.swift */,
 			);
 			path = "NAGEN Engine";
 			sourceTree = "<group>";
@@ -381,6 +386,7 @@
 				TargetAttributes = {
 					612C42452B0A48DC002703F8 = {
 						CreatedOnToolsVersion = 15.0;
+						LastSwiftMigration = 1500;
 					};
 				};
 			};
@@ -407,6 +413,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61FFAFFE2B0BA03000AF44F7 /* Blank.swift in Sources */,
 				612C42C52B0A616B002703F8 /* render.cpp in Sources */,
 				612C42C12B0A4C79002703F8 /* NAGENobject.cpp in Sources */,
 				612C424A2B0A48DC002703F8 /* main.cpp in Sources */,
@@ -534,6 +541,7 @@
 		612C424E2B0A48DC002703F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 623VZ9J66K;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -542,12 +550,16 @@
 					"metal-cpp-extensions",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NAGEN Engine/NAGEN Engine-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		612C424F2B0A48DC002703F8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 623VZ9J66K;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -556,6 +568,8 @@
 					"metal-cpp-extensions",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NAGEN Engine/NAGEN Engine-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
