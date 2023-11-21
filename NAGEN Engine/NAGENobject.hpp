@@ -11,37 +11,42 @@
 #include <stdio.h>
 #include <vector>
 
+#include "vertex.hpp"
+
 
 /**
     The base class of the object.
  
- double xCoordinate — x coordinate relative to the center of the world
+ double xCoordinate — x coordinate relative to the center of the world, meter
  
- double yCoordinate — y coordinate relative to the center of the world
+ double yCoordinate — y coordinate relative to the center of the world, meter
  
- double zCoordinate — z coordinate relative to the center of the world
- 
- 
- double thetaAngle — Zenith angle value
- 
- double phiAngle — Azimuth angle value
+ double zCoordinate — z coordinate relative to the center of the world, meter
  
  
- double xSize — The size of the object along the OX axis from the center of mass
+ double thetaAngle — Zenith angle value, radian
  
- double ySize — The size of the object along the OY axis from the center of mass
- 
- double zSize — The size of the object along the OZ axis from the center of mass
+ double phiAngle — Azimuth angle value, radian
  
  
- double mass — Object mass value
+ double xSize — The size of the object along the OX axis from the center of mass, meter
+ 
+ double ySize — The size of the object along the OY axis from the center of mass, meter
+ 
+ double zSize — The size of the object along the OZ axis from the center of mass, meter
  
  
- double xSpeed — Local x-axis velocity value
+ double mass — Object mass value, kg
  
- double ySpeed — Local y-axis velocity value
  
- double zSpeed — Local z-axis velocity value
+ double xSpeed — Local x-axis velocity value, radian
+ 
+ double ySpeed — Local y-axis velocity value, radian
+ 
+ double zSpeed — Local z-axis velocity value, radian
+ 
+ 
+ double temperature — Object temperature value, kelvin
  
  */
 class NAGENobject {
@@ -63,6 +68,9 @@ public:
     double ySpeed;
     double zSpeed;
     
+    double temperature;
+    
+    std::vector<vertex> vertexes;
     
     /**
      This function demonstrates the movement of a body along the Oz axis.

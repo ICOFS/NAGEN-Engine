@@ -16,12 +16,12 @@ int main () {
     
     Object.mass = 1; // Kilogram
     
-    Object.xCoordinate = 0; // Meter
-    Object.yCoordinate = 0; // Meter
-    Object.zCoordinate = 1000; // Meter
+    Object.xCoordinate = 0;
+    Object.yCoordinate = 0;
+    Object.zCoordinate = 1000;
     
-    Object.phiAngle = 0; // Radian
-    Object.thetaAngle = 0; // Radian
+    Object.phiAngle = 0;
+    Object.thetaAngle = 0;
     
     Object.xSpeed = 0;
     Object.ySpeed = 0;
@@ -30,6 +30,41 @@ int main () {
     Object.xSize = 0.5;
     Object.ySize = 0.5;
     Object.zSize = 0.5;
+    
+    
+//    vertex v1 = {Object.xCoordinate - 0.5, Object.yCoordinate - 0.5, Object.zCoordinate - 0.5};  // Bottom edge
+//    vertex v2 = {Object.xCoordinate + 0.5, Object.yCoordinate - 0.5, Object.zCoordinate - 0.5};
+//    vertex v3 = {Object.xCoordinate + 0.5, Object.yCoordinate + 0.5, Object.zCoordinate - 0.5};
+//    vertex v4 = {Object.xCoordinate - 0.5, Object.yCoordinate + 0.5, Object.zCoordinate - 0.5};
+//    vertex v5 = {Object.xCoordinate - 0.5, Object.yCoordinate - 0.5, Object.zCoordinate + 0.5};  // Top edge
+//    vertex v6 = {Object.xCoordinate + 0.5, Object.yCoordinate - 0.5, Object.zCoordinate + 0.5};
+//    vertex v7 = {Object.xCoordinate + 0.5, Object.yCoordinate + 0.5, Object.zCoordinate + 0.5};
+//    vertex v8 = {Object.xCoordinate - 0.5, Object.yCoordinate + 0.5, Object.zCoordinate + 0.5};
+//    
+//    Object.vertexes.push_back(v1);
+//    Object.vertexes.push_back(v2);
+//    Object.vertexes.push_back(v3);
+//    Object.vertexes.push_back(v4);
+//    Object.vertexes.push_back(v5);
+//    Object.vertexes.push_back(v6);
+//    Object.vertexes.push_back(v7);
+//    Object.vertexes.push_back(v8);
+//    
+//    for (const auto& vertex : Object.vertexes) {
+//        std::cout << "x: " << vertex.xCoordinate << ", ";
+//        std::cout << "y: " << vertex.yCoordinate << ", ";
+//        std::cout << "z: " << vertex.zCoordinate << std::endl;
+//    }
+//    
+//    Object.EarthGravityDemo();
+//    
+//    for (const auto& vertex : Object.vertexes) {
+//        std::cout << "x: " << vertex.xCoordinate << ", ";
+//        std::cout << "y: " << vertex.yCoordinate << ", ";
+//        std::cout << "z: " << vertex.zCoordinate << std::endl;
+//    }
+    
+    
     
     
 //    // This function calculates the speed and position (points of mass) of a body at every second - gravity.

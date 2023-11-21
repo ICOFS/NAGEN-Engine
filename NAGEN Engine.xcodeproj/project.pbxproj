@@ -29,6 +29,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		610CD97F2B0CF731007F62B3 /* vertex.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = vertex.hpp; sourceTree = "<group>"; };
 		612C42462B0A48DC002703F8 /* NAGEN Engine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "NAGEN Engine"; sourceTree = BUILT_PRODUCTS_DIR; };
 		612C42492B0A48DC002703F8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		612C42522B0A48EE002703F8 /* NSMenuItem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NSMenuItem.hpp; sourceTree = "<group>"; };
@@ -183,6 +184,7 @@
 				612C42C22B0A56BB002703F8 /* globalConsts.h */,
 				612C42BF2B0A4C79002703F8 /* NAGENobject.cpp */,
 				612C42C02B0A4C79002703F8 /* NAGENobject.hpp */,
+				610CD97F2B0CF731007F62B3 /* vertex.hpp */,
 				61FFAFFC2B0BA03000AF44F7 /* NAGEN Engine-Bridging-Header.h */,
 				61FFAFFD2B0BA03000AF44F7 /* Blank.swift */,
 			);

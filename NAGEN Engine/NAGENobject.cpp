@@ -48,6 +48,7 @@ void NAGENobject::EarthGravityDemo() {
     int Time = 0;
     
     while (Time < 100) {
+        
         std::cout << Time << std::endl;
         
         std::cout << "x: " << xCoordinate << " " << xSpeed << std::endl;
@@ -58,18 +59,26 @@ void NAGENobject::EarthGravityDemo() {
         
         double zCoordinateOld = zCoordinate;
         
-        zSpeed += EarthG;
+        zSpeed -= EarthG;
         
-        if (zCoordinate-zSize <= 0) {
+        if (zCoordinate+zSize <= 0) {
             zSpeed = 0;
         }
         
-        zCoordinate -= zSpeed;
+        zCoordinate += zSpeed;
+        
+//        for (auto& vertex : vertexes) {
+//            vertex.zCoordinate += zSpeed;
+//        }
         
         if (zCoordinate < 0.5) {
             zCoordinate = 0.5;
+            
+            for (auto& vertex : vertexes) {
+                // We need code to change the coordinates of the vertices.
+            }
         }
         
-        zSpeed = zCoordinateOld - zCoordinate;
+        zSpeed = -(zCoordinateOld - zCoordinate);
     }
 }
