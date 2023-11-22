@@ -551,6 +551,7 @@
 					"metal-cpp",
 					"metal-cpp-extensions",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "NAGEN Engine/NAGEN Engine-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -569,6 +570,7 @@
 					"metal-cpp",
 					"metal-cpp-extensions",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "NAGEN Engine/NAGEN Engine-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

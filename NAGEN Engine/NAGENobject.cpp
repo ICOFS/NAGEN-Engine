@@ -45,40 +45,32 @@ void NAGENobject::rotate(double theta, double phi) {
 
 
 void NAGENobject::EarthGravityDemo() {
-    int Time = 0;
+    double tick = 0;
+//    double locEarthG = EarthG/3*2;
     
-    while (Time < 100) {
-        
-        std::cout << Time << std::endl;
-        
+    
+    while (tick < 15 * tickPerSecond) {
+        std::cout << tick/tickPerSecond << std::endl;
         std::cout << "x: " << xCoordinate << " " << xSpeed << std::endl;
         std::cout << "y: " << yCoordinate << " " << ySpeed << std::endl;
         std::cout << "z: " << zCoordinate << " " << zSpeed << std::endl;
-        
-        Time++;
-        
+
+        tick++;
+
         double zCoordinateOld = zCoordinate;
-        
-        zSpeed -= EarthG;
-        
-        if (zCoordinate+zSize <= 0) {
+
+        zSpeed -= EarthG / tickPerSecond;
+
+        if (zCoordinate + zSize <= 0) {
             zSpeed = 0;
         }
-        
-        zCoordinate += zSpeed;
-        
-//        for (auto& vertex : vertexes) {
-//            vertex.zCoordinate += zSpeed;
-//        }
-        
+
+        zCoordinate += zSpeed/tickPerSecond;
+
         if (zCoordinate < 0.5) {
             zCoordinate = 0.5;
-            
-            for (auto& vertex : vertexes) {
-                // We need code to change the coordinates of the vertices.
-            }
         }
-        
-        zSpeed = -(zCoordinateOld - zCoordinate);
+
+        zSpeed = -(zCoordinateOld - zCoordinate)*tickPerSecond;
     }
 }

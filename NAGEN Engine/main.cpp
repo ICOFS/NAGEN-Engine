@@ -32,14 +32,14 @@ int main () {
     Object.zSize = 0.5;
     
     
-//    vertex v1 = {Object.xCoordinate - 0.5, Object.yCoordinate - 0.5, Object.zCoordinate - 0.5};  // Bottom edge
-//    vertex v2 = {Object.xCoordinate + 0.5, Object.yCoordinate - 0.5, Object.zCoordinate - 0.5};
-//    vertex v3 = {Object.xCoordinate + 0.5, Object.yCoordinate + 0.5, Object.zCoordinate - 0.5};
-//    vertex v4 = {Object.xCoordinate - 0.5, Object.yCoordinate + 0.5, Object.zCoordinate - 0.5};
-//    vertex v5 = {Object.xCoordinate - 0.5, Object.yCoordinate - 0.5, Object.zCoordinate + 0.5};  // Top edge
-//    vertex v6 = {Object.xCoordinate + 0.5, Object.yCoordinate - 0.5, Object.zCoordinate + 0.5};
-//    vertex v7 = {Object.xCoordinate + 0.5, Object.yCoordinate + 0.5, Object.zCoordinate + 0.5};
-//    vertex v8 = {Object.xCoordinate - 0.5, Object.yCoordinate + 0.5, Object.zCoordinate + 0.5};
+//    vertex v1 = {-0.5, -0.5, -0.5};  // Bottom edge
+//    vertex v2 = { 0.5, -0.5, -0.5};
+//    vertex v3 = { 0.5,  0.5, -0.5};
+//    vertex v4 = {-0.5,  0.5, -0.5};
+//    vertex v5 = {-0.5, -0.5,  0.5};  // Top edge
+//    vertex v6 = { 0.5, -0.5,  0.5};
+//    vertex v7 = { 0.5,  0.5,  0.5};
+//    vertex v8 = {-0.5,  0.5,  0.5};
 //    
 //    Object.vertexes.push_back(v1);
 //    Object.vertexes.push_back(v2);
@@ -49,15 +49,15 @@ int main () {
 //    Object.vertexes.push_back(v6);
 //    Object.vertexes.push_back(v7);
 //    Object.vertexes.push_back(v8);
-//    
+    
 //    for (const auto& vertex : Object.vertexes) {
 //        std::cout << "x: " << vertex.xCoordinate << ", ";
 //        std::cout << "y: " << vertex.yCoordinate << ", ";
 //        std::cout << "z: " << vertex.zCoordinate << std::endl;
 //    }
-//    
-//    Object.EarthGravityDemo();
-//    
+    
+    Object.EarthGravityDemo();
+    
 //    for (const auto& vertex : Object.vertexes) {
 //        std::cout << "x: " << vertex.xCoordinate << ", ";
 //        std::cout << "y: " << vertex.yCoordinate << ", ";
