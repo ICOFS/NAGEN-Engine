@@ -19,4 +19,4 @@ By using, modifying, or distributing the Software, you agree to abide by the ter
 Faramt team
 https://github.com/Farmat-organization
 https://farmat-team.github.io
-https://farmat-team.github.io/licences/FOPL.html
+https://farmat-team.github.io/licences/FOSL.html

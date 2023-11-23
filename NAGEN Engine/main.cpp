@@ -1,17 +1,20 @@
 //
+//  main.cpp
+//  NAGEN Engine
 //
 // Copyright 2023 Farmat team
 //
 // Licensed under the FOSL (the "LICENSE.md");
 //
+//  Created by Farmat on 2023-11-23.
 //
-
-#include <iostream>
-#include <cmath>
 
 #include "NAGENobject.hpp"
 
-int main () {
+int main(){
+//    double glTick = 0;
+//    double tickPerSecond = 100;
+    
     NAGENobject Object;
     
     Object.mass = 1; // Kilogram
@@ -31,6 +34,11 @@ int main () {
     Object.ySize = 0.5;
     Object.zSize = 0.5;
     
+//    while (glTick <= 15 * tickPerSecond) {
+//        Object.gravityTick(glTick);
+//        glTick++;
+//    }
+
     
 //    vertex v1 = {-0.5, -0.5, -0.5};  // Bottom edge
 //    vertex v2 = { 0.5, -0.5, -0.5};
@@ -40,7 +48,7 @@ int main () {
 //    vertex v6 = { 0.5, -0.5,  0.5};
 //    vertex v7 = { 0.5,  0.5,  0.5};
 //    vertex v8 = {-0.5,  0.5,  0.5};
-//    
+//
 //    Object.vertexes.push_back(v1);
 //    Object.vertexes.push_back(v2);
 //    Object.vertexes.push_back(v3);
@@ -56,7 +64,7 @@ int main () {
 //        std::cout << "z: " << vertex.zCoordinate << std::endl;
 //    }
     
-    Object.EarthGravityDemo();
+//    Object.EarthGravityDemo();
     
 //    for (const auto& vertex : Object.vertexes) {
 //        std::cout << "x: " << vertex.xCoordinate << ", ";
@@ -70,7 +78,7 @@ int main () {
 //    // This function calculates the speed and position (points of mass) of a body at every second - gravity.
 //    // The function does not take into account air
 //    Object.EarthGravityDemo();
-//    
+//
 //    Object.rotate(3.1415926535, 0);
 //    Object.moveStraight(1);
 //    // Something like turning 180 and walking 1 meter...
@@ -79,6 +87,5 @@ int main () {
 //    Object.moveStraight(1);
 //    // ...and then turn back and walk another 1 meter
      
-    
-}
-
+    return 0;
+};

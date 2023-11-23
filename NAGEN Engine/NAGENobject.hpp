@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <vector>
 
+//#include "globalConsts.h"
 #include "vertex.hpp"
 
 
@@ -102,6 +103,9 @@ public:
      The function does not take into account air resistance.
      */
     void EarthGravityDemo();
+    
+    
+//    void gravityTick(double tick);
 };
 
 #endif /* NAGENobject_hpp */
