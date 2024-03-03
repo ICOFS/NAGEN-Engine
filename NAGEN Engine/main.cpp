@@ -11,7 +11,7 @@
 
 #include "NAGENobject.hpp"
 
-int main(){
+int main() {
 //    double glTick = 0;
 //    double tickPerSecond = 100;
     
@@ -64,7 +64,7 @@ int main(){
 //        std::cout << "z: " << vertex.zCoordinate << std::endl;
 //    }
     
-//    Object.EarthGravityDemo();
+    Object.EarthGravityDemo();
     
 //    for (const auto& vertex : Object.vertexes) {
 //        std::cout << "x: " << vertex.xCoordinate << ", ";
