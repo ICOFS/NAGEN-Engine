@@ -8,6 +8,6 @@
 #ifndef render_hpp
 #define render_hpp
 
-#include <stdio.h>
+#include <cstdio>
 
 #endif /* render_hpp */

@@ -1,9 +1,4 @@
-# Generated on 2024-3-3 6:16:11 by version 0.9.1 of mulle-xcode-to-cmake
-# Command line:
-#    mulle-xcode-to-cmake -d -l c++ export NAGEN Engine.xcodeproj
-
-
-cmake_minimum_required (VERSION 3.4)
+cmake_minimum_required (VERSION 3.21)
 project( "NAGEN Engine" CXX)
 
 # ###
@@ -78,6 +73,7 @@ if( APPLE)
 
    set( BEGIN_ALL_LOAD "-all_load")
    set( END_ALL_LOAD)
+
 else()
    set( CMAKE_POSITION_INDEPENDENT_CODE TRUE)
 

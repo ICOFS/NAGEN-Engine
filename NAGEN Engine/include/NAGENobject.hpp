@@ -10,7 +10,7 @@
 #ifndef NAGENobject_hpp
 #define NAGENobject_hpp
 
-#include <stdio.h>
+#include <cstdio>
 #include <vector>
 
 #include "vertex.hpp"
