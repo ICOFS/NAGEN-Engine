@@ -11,15 +11,12 @@
 
 #include "../../Game/myGame.hpp"
 
-#include "../include/NAGENobject.hpp"
-
 int main() {
     myGame myGameEng;
-    scene localSceneEng;
 
-    localSceneEng = myGameEng.gameInitialization();
+    scene localSceneEng = myGameEng.gameInitialization();
 
     myGameEng.gameLoop(localSceneEng);
 
     return 0;
-};
+}

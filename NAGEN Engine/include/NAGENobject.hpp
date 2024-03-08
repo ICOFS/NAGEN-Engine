@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <vector>
 
-//#include "globalConsts.h"
+// #include "globalConsts.h"
 #include "vertex.hpp"
 
 

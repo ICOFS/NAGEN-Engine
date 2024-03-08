@@ -104,6 +104,7 @@ set( SOURCES
         "NAGEN Engine/src/NAGENobject.cpp"
         "NAGEN Engine/src/engine.cpp"
         "NAGEN Engine/src/render.cpp"
+        "NAGEN Engine/include/NAGEN Engine-Bridging-Header.h"
 )
 
 set( STATIC_DEPENDENCIES
@@ -134,6 +135,7 @@ add_library( NAGEN-Engine-lib STATIC
         ${PROJECT_HEADERS}
         ${PRIVATE_HEADERS}
         ${RESOURCES}
+        "NAGEN Engine/include/NAGEN Engine-Bridging-Header.h"
 )
 
 add_executable( NAGEN-Engine
@@ -142,7 +144,8 @@ add_executable( NAGEN-Engine
         ${PROJECT_HEADERS}
         ${PRIVATE_HEADERS}
         ${RESOURCES}
-        Game/myGame.cpp Game/myGame.hpp "NAGEN Engine/include/engine.hpp")
+        Game/myGame.cpp Game/myGame.hpp "NAGEN Engine/include/engine.hpp"
+        "NAGEN Engine/include/NAGEN Engine-Bridging-Header.h")
 
 install( TARGETS NAGEN-Engine DESTINATION "lib")
 install( FILES ${PUBLIC_HEADERS} DESTINATION "include/NAGEN-Engine")

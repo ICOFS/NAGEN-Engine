@@ -11,8 +11,8 @@ struct scene {
 
 class myGame {
 public:
-    scene gameInitialization();
-    int gameLoop(scene localScene);
+    static scene gameInitialization();
+    static int gameLoop(scene localScene);
 
 };
 

@@ -5,7 +5,7 @@
 #include <iostream>
 
 #include "myGame.hpp"
-#include "../NAGEN Engine/include/NAGENobject.hpp"
+#include "../NAGEN Engine/include/engine.hpp"
 
 scene myGame::gameInitialization() {
     scene localScene = {};
