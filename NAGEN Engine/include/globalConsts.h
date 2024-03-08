@@ -11,7 +11,7 @@
 #define globalConsts_h
 
 // Engine
-double tickPerSecond = 100;
+double tickPerSecond = 1000;
 
 // Physic
 double Pi = 3.1415926535897932384626433832795028841971;

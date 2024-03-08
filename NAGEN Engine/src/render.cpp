@@ -1,9 +1,9 @@
-////
-////  render.cpp
-////  NAGEN Engine
-////
-////  Created by Farmat on 2023-11-19.
-////
+//
+//  render.cpp
+//  NAGEN Engine
+//
+//  Created by Farmat on 2023-11-19.
+//
 //
 //#include "render.hpp"
 //

@@ -105,7 +105,7 @@ public:
     void EarthGravityDemo();
     
     
-//    void gravityTick(double tick);
+    void gravityTick(double tick);
 };
 
 #endif /* NAGENobject_hpp */

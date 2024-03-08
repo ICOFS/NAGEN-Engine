@@ -37,7 +37,7 @@ if( EXISTS "${DEPENDENCY_DIR}")
       ${CMAKE_FRAMEWORK_PATH}
    )
    set( CMAKE_LIBRARY_PATH
-      ${DEPENDENCY_DIR}/lib
+           ${DEPENDENCY_DIR}/lib
       ${ADDICTION_DIR}/lib
       ${CMAKE_LIBRARY_PATH}
    )
@@ -100,10 +100,10 @@ endif()
 # set( CMAKE_FIND_FRAMEWORK "LAST")
 
 set( SOURCES
-"NAGEN Engine/Blank.swift"
-"NAGEN Engine/NAGENobject.cpp"
-"NAGEN Engine/main.cpp"
-"NAGEN Engine/render.cpp"
+        "NAGEN Engine/Blank.swift"
+        "NAGEN Engine/src/NAGENobject.cpp"
+        "NAGEN Engine/src/engine.cpp"
+        "NAGEN Engine/src/render.cpp"
 )
 
 set( STATIC_DEPENDENCIES
@@ -123,17 +123,17 @@ if( NOT SKIP_FIND_METAL_KIT_LIBRARY)
 endif()
 
 set( DEPENDENCIES
-${FOUNDATION_LIBRARY}
-${METAL_LIBRARY}
-${METAL_KIT_LIBRARY}
+        ${FOUNDATION_LIBRARY}
+        ${METAL_LIBRARY}
+        ${METAL_KIT_LIBRARY}
 )
 
 add_library( NAGEN-Engine-lib STATIC
-${SOURCES}
-${PUBLIC_HEADERS}
-${PROJECT_HEADERS}
-${PRIVATE_HEADERS}
-${RESOURCES}
+        ${SOURCES}
+        ${PUBLIC_HEADERS}
+        ${PROJECT_HEADERS}
+        ${PRIVATE_HEADERS}
+        ${RESOURCES}
 )
 
 add_executable( NAGEN-Engine
@@ -142,7 +142,7 @@ add_executable( NAGEN-Engine
         ${PROJECT_HEADERS}
         ${PRIVATE_HEADERS}
         ${RESOURCES}
-)
+        Game/myGame.cpp Game/myGame.hpp "NAGEN Engine/include/engine.hpp")
 
 install( TARGETS NAGEN-Engine DESTINATION "lib")
 install( FILES ${PUBLIC_HEADERS} DESTINATION "include/NAGEN-Engine")

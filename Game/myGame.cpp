@@ -1,45 +1,43 @@
 //
-//  main.cpp
-//  NAGEN Engine
-//
-// Copyright 2023 Farmat team
-//
-// Licensed under the FOSL (the "LICENSE.md");
-//
-//  Created by Farmat on 2023-11-23.
+// Created by Farmat on 2024-03-03.
 //
 
-#include "NAGENobject.hpp"
+#include <iostream>
 
-int main() {
+#include "myGame.hpp"
+#include "../NAGEN Engine/include/NAGENobject.hpp"
+
+scene myGame::gameInitialization() {
+    scene localScene = {};
+
 //    double glTick = 0;
 //    double tickPerSecond = 100;
-    
+
     NAGENobject Object;
-    
+
     Object.mass = 1; // Kilogram
-    
+
     Object.xCoordinate = 0;
     Object.yCoordinate = 0;
     Object.zCoordinate = 1000;
-    
+
     Object.phiAngle = 0;
     Object.thetaAngle = 0;
-    
+
     Object.xSpeed = 0;
     Object.ySpeed = 0;
     Object.zSpeed = 0;
-    
+
     Object.xSize = 0.5;
     Object.ySize = 0.5;
     Object.zSize = 0.5;
-    
+
 //    while (glTick <= 15 * tickPerSecond) {
 //        Object.gravityTick(glTick);
 //        glTick++;
 //    }
 
-    
+
 //    vertex v1 = {-0.5, -0.5, -0.5};  // Bottom edge
 //    vertex v2 = { 0.5, -0.5, -0.5};
 //    vertex v3 = { 0.5,  0.5, -0.5};
@@ -57,24 +55,24 @@ int main() {
 //    Object.vertexes.push_back(v6);
 //    Object.vertexes.push_back(v7);
 //    Object.vertexes.push_back(v8);
-    
+
 //    for (const auto& vertex : Object.vertexes) {
 //        std::cout << "x: " << vertex.xCoordinate << ", ";
 //        std::cout << "y: " << vertex.yCoordinate << ", ";
 //        std::cout << "z: " << vertex.zCoordinate << std::endl;
 //    }
-    
+
     Object.EarthGravityDemo();
-    
+
 //    for (const auto& vertex : Object.vertexes) {
 //        std::cout << "x: " << vertex.xCoordinate << ", ";
 //        std::cout << "y: " << vertex.yCoordinate << ", ";
 //        std::cout << "z: " << vertex.zCoordinate << std::endl;
 //    }
-    
-    
-    
-    
+
+
+
+
 //    // This function calculates the speed and position (points of mass) of a body at every second - gravity.
 //    // The function does not take into account air
 //    Object.EarthGravityDemo();
@@ -86,6 +84,15 @@ int main() {
 //    Object.rotate(3.1415926535, 0);
 //    Object.moveStraight(1);
 //    // ...and then turn back and walk another 1 meter
-     
+
+
+    localScene.i = 1;
+
+    return localScene;
+}
+int myGame::gameLoop(scene localScene) {
+    std::cout << localScene.i;
+    localScene.i++;
+    std::cout << localScene.i;
     return 0;
-};
+}
