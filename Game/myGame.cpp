@@ -2,7 +2,7 @@
 // Created by Farmat on 2024-03-03.
 //
 
-#include <iostream>
+#include <vector>
 
 #include "myGame.hpp"
 #include "../NAGEN Engine/include/engine.hpp"
@@ -10,89 +10,69 @@
 scene myGame::gameInitialization() {
     scene localScene = {};
 
-//    double glTick = 0;
-//    double tickPerSecond = 100;
-
-    NAGENobject Object;
-
-    Object.mass = 1; // Kilogram
-
-    Object.xCoordinate = 0;
-    Object.yCoordinate = 0;
-    Object.zCoordinate = 1000;
-
-    Object.phiAngle = 0;
-    Object.thetaAngle = 0;
-
-    Object.xSpeed = 0;
-    Object.ySpeed = 0;
-    Object.zSpeed = 0;
-
-    Object.xSize = 0.5;
-    Object.ySize = 0.5;
-    Object.zSize = 0.5;
-
-//    while (glTick <= 15 * tickPerSecond) {
-//        Object.gravityTick(glTick);
-//        glTick++;
-//    }
+    localScene.id = 1;
+    localScene.tickPerSecond = 1000;
+//    double Tick = 0;
 
 
-//    vertex v1 = {-0.5, -0.5, -0.5};  // Bottom edge
-//    vertex v2 = { 0.5, -0.5, -0.5};
-//    vertex v3 = { 0.5,  0.5, -0.5};
-//    vertex v4 = {-0.5,  0.5, -0.5};
-//    vertex v5 = {-0.5, -0.5,  0.5};  // Top edge
-//    vertex v6 = { 0.5, -0.5,  0.5};
-//    vertex v7 = { 0.5,  0.5,  0.5};
-//    vertex v8 = {-0.5,  0.5,  0.5};
-//
-//    Object.vertexes.push_back(v1);
-//    Object.vertexes.push_back(v2);
-//    Object.vertexes.push_back(v3);
-//    Object.vertexes.push_back(v4);
-//    Object.vertexes.push_back(v5);
-//    Object.vertexes.push_back(v6);
-//    Object.vertexes.push_back(v7);
-//    Object.vertexes.push_back(v8);
+    NAGENobject Object1;
 
-//    for (const auto& vertex : Object.vertexes) {
-//        std::cout << "x: " << vertex.xCoordinate << ", ";
-//        std::cout << "y: " << vertex.yCoordinate << ", ";
-//        std::cout << "z: " << vertex.zCoordinate << std::endl;
-//    }
+    Object1.mass = 1; // Kilogram
 
-    Object.EarthGravityDemo();
+    Object1.xCoordinate = 0;
+    Object1.yCoordinate = 0;
+    Object1.zCoordinate = 1000;
 
-//    for (const auto& vertex : Object.vertexes) {
-//        std::cout << "x: " << vertex.xCoordinate << ", ";
-//        std::cout << "y: " << vertex.yCoordinate << ", ";
-//        std::cout << "z: " << vertex.zCoordinate << std::endl;
-//    }
+    Object1.phiAngle = 0;
+    Object1.thetaAngle = 0;
 
+    Object1.xSpeed = 0;
+    Object1.ySpeed = 0;
+    Object1.zSpeed = 0;
 
+    Object1.xSize = 0.5;
+    Object1.ySize = 0.5;
+    Object1.zSize = 0.5;
 
+    localScene.NagenObjectList.push_back(Object1);
 
-//    // This function calculates the speed and position (points of mass) of a body at every second - gravity.
-//    // The function does not take into account air
-//    Object.EarthGravityDemo();
-//
-//    Object.rotate(3.1415926535, 0);
-//    Object.moveStraight(1);
-//    // Something like turning 180 and walking 1 meter...
-//
-//    Object.rotate(3.1415926535, 0);
-//    Object.moveStraight(1);
-//    // ...and then turn back and walk another 1 meter
+    NAGENobject Object2;
 
+    Object2.mass = 1; // Kilogram
 
-    localScene.i = 1;
+    Object2.xCoordinate = 0;
+    Object2.yCoordinate = 0;
+    Object2.zCoordinate = 10000;
+
+    Object2.phiAngle = 0;
+    Object2.thetaAngle = 0;
+
+    Object2.xSpeed = 0;
+    Object2.ySpeed = 0;
+    Object2.zSpeed = 0;
+
+    Object2.xSize = 0.5;
+    Object2.ySize = 0.5;
+    Object2.zSize = 0.5;
+
+    localScene.NagenObjectList.push_back(Object2);
 
     return localScene;
 }
-int myGame::gameLoop(scene localScene) {
-    std::cout << localScene.i;
-    localScene.i++;
-    std::cout << localScene.i;
+
+int myGame::gameLoop(scene & localScene) {
+    std::cout << "\n====================================\n";
+    std::cout << "ID of scene:        " << localScene.id                            << std::endl;
+    std::cout << "Tick number:        " << localScene.tick                          << std::endl;
+    std::cout << "Seconds from start: " << localScene.tick/localScene.tickPerSecond << std::endl;
+
+    // Physic for solid objects
+    for (int idOfObject = 0; idOfObject < localScene.NagenObjectList.size(); idOfObject++)
+    {
+        localScene.NagenObjectList.at(idOfObject).gravityTick(localScene.tick, localScene.tickPerSecond, idOfObject);
+    }
+
+    localScene.tick++;
+
     return 0;
 }

@@ -2,17 +2,25 @@
 // Created by Farmat on 2024-03-03.
 //
 
+#pragma once
+
 #ifndef NAGEN_ENGINE_MYGAME_HPP
 #define NAGEN_ENGINE_MYGAME_HPP
 
+#include <vector>
+#include "../NAGEN Engine/include/engine.hpp"
+
 struct scene {
-    float i;
+    int id;
+    int tick;
+    double tickPerSecond;
+    std::vector<class NAGENobject> NagenObjectList;
 };
 
 class myGame {
 public:
     static scene gameInitialization();
-    static int gameLoop(scene localScene);
+    static int gameLoop(scene & localScene);
 
 };
 

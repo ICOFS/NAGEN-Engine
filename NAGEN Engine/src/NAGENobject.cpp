@@ -4,13 +4,11 @@
 //
 //  Created by Farmat on 2023-11-19.
 //
-
-
 #include <cmath>
 #include <iostream>
 
 #include "../include/NAGENobject.hpp"
-#include "../include/globalConsts.h"
+ #include "../include/globalConsts.h"
 
 void NAGENobject::moveStraight(double length) {
     
@@ -44,7 +42,7 @@ void NAGENobject::rotate(double theta, double phi) {
 };
 
 
-void NAGENobject::EarthGravityDemo() {
+void NAGENobject::EarthGravityDemo(double tickPerSecond) {
     double tick = 0;
 //    double locEarthG = EarthG/3*2;
     
@@ -75,11 +73,11 @@ void NAGENobject::EarthGravityDemo() {
     }
 }
 
-void NAGENobject::gravityTick(double tick) {
-    std::cout << tick/tickPerSecond << std::endl;
-    std::cout << "x: " << xCoordinate << " " << xSpeed << std::endl;
-    std::cout << "y: " << yCoordinate << " " << ySpeed << std::endl;
-    std::cout << "z: " << zCoordinate << " " << zSpeed << std::endl;
+void NAGENobject::gravityTick(double tick, double tickPerSecond, int idOfObject) {
+    std::cout << "ID: " << idOfObject << std::endl;
+    std::cout << "x:  " << xCoordinate << "\t" << xSpeed << std::endl;
+    std::cout << "y:  " << yCoordinate << "\t" << ySpeed << std::endl;
+    std::cout << "z:  " << zCoordinate << "\t" << zSpeed << std::endl;
 
     tick++;
 

@@ -6,9 +6,12 @@
 #define NAGEN_ENGINE_ENGINE_HPP
 
 #pragma once
+#include <iostream>
+
 #include "NAGENobject.hpp"
 #include "render.hpp"
 #include "vertex.hpp"
+// #include "globalConsts.h"
 
 
 #endif //NAGEN_ENGINE_ENGINE_HPP

@@ -5,13 +5,14 @@
 //  Created by Farmat on 2023-11-19.
 //
 
+#pragma once
+
 #ifndef NAGENobject_hpp
 #define NAGENobject_hpp
 
 #include <stdio.h>
 #include <vector>
 
-// #include "globalConsts.h"
 #include "vertex.hpp"
 
 
@@ -102,10 +103,10 @@ public:
 
      The function does not take into account air resistance.
      */
-    void EarthGravityDemo();
+    void EarthGravityDemo(double tickPerSecond);
     
     
-    void gravityTick(double tick);
+    void gravityTick(double tick, double tickPerSecond, int idOfObject);
 };
 
 #endif /* NAGENobject_hpp */
