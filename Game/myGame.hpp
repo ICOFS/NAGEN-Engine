@@ -8,7 +8,8 @@
 #define NAGEN_ENGINE_MYGAME_HPP
 
 #include <vector>
-#include "../NAGEN Engine/include/engine.hpp"
+
+#include "../Nagen Engine Framework/include/engine.hpp"
 
 struct scene {
     int id;

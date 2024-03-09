@@ -1,6 +1,6 @@
 //
 //  globalConsts.h
-//  NAGEN Engine
+//  Nagen Engine Framework
 //
 //  Created by Farmat on 2023-11-19.
 //

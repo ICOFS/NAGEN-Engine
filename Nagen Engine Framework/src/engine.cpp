@@ -1,6 +1,6 @@
 //
 //  main.cpp
-//  NAGEN Engine
+//  Nagen Engine Framework
 //
 // Copyright 2023 Farmat team
 //
