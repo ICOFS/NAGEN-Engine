@@ -16,7 +16,7 @@ int main() {
 
     scene localSceneEng = myGameEng.gameInitialization();
 
-    while (localSceneEng.tick <= 15 * localSceneEng.tickPerSecond) {
+    while (localSceneEng.tick <= 5 * localSceneEng.tickPerSecond) {
         myGameEng.gameLoop(localSceneEng);
     }
     return 0;

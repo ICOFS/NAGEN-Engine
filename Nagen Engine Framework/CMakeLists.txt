@@ -25,3 +25,5 @@ add_library( Nagen_Engine_Framework STATIC
 )
 
 target_include_directories( Nagen_Engine_Framework PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/)
+
+#add_subdirectory("External Libraries/SFML/")

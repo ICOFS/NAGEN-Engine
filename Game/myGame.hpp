@@ -9,7 +9,7 @@
 
 #include <vector>
 
-#include "../Nagen Engine Framework/include/engine.hpp"
+#include "include/engine.hpp"
 
 struct scene {
     int id;
