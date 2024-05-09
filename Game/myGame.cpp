@@ -4,6 +4,9 @@
 
 #include "myGame.hpp"
 
+std::string myGame::pathtoicon = "../Game/icon.png";
+std::string myGame::nameofwindow = "Nagen Engine";
+
 scene myGame::gameInitialization() {
 
     scene localScene = {};

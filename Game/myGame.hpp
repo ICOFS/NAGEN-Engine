@@ -7,9 +7,7 @@
 #ifndef NAGEN_ENGINE_MYGAME_HPP
 #define NAGEN_ENGINE_MYGAME_HPP
 
-#include <vector>
-
-#include "include/engine.hpp"
+#include <engine.hpp>
 
 struct scene {
     int id;
@@ -22,6 +20,10 @@ class myGame {
 public:
     static scene gameInitialization();
     static int gameLoop(scene & localScene);
+    static int render();
+
+    static std::string pathtoicon;
+    static std::string nameofwindow;
 
 };
 

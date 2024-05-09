@@ -3,6 +3,8 @@ project( "Nagen_Engine_Framework" CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 
+find_package(SFML 2.6.1 COMPONENTS graphics window audio REQUIRED)
+
 add_library( Nagen_Engine_Framework STATIC
         "src/engine.cpp"
         "include/engine.hpp"
@@ -13,10 +15,6 @@ add_library( Nagen_Engine_Framework STATIC
         "src/render.cpp"
         "include/render.hpp"
 
-        "src/objc/keyboard.mm"
-        "include/objc/button.hpp"
-        "include/ui/keyboard.hpp"
-
         "include/globalConsts.h"
 
         "include/NAGEN Engine-Bridging-Header.h"
@@ -24,6 +22,8 @@ add_library( Nagen_Engine_Framework STATIC
         "include/mesh.hpp"
 )
 
-target_include_directories( Nagen_Engine_Framework PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/)
+target_include_directories( Nagen_Engine_Framework PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
 
-#add_subdirectory("External Libraries/SFML/")
+target_link_libraries(Nagen_Engine_Framework PUBLIC sfml-graphics sfml-window sfml-system sfml-audio)
