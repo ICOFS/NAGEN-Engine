@@ -1,5 +1,5 @@
 //
-//  vertex.hpp
+//  mesh.hpp
 //  Nagen Engine Framework
 //
 //  Created by Farmat on 2023-11-21.
@@ -16,7 +16,7 @@
  To add coordinates, use local coordinates, where 0; 0; 0 - center of mass of the body
  
  */
-struct vertex {
+struct mesh {
     double xCoordinate;
     double yCoordinate;
     double zCoordinate;

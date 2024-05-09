@@ -13,7 +13,7 @@
 #include <cstdio>
 #include <vector>
 
-#include "vertex.hpp"
+#include "mesh.hpp"
 
 
 /**
@@ -72,7 +72,8 @@ public:
     
     double temperature;
     
-    std::vector<vertex> vertexes;
+    std::vector<mesh> vertexes;
+    std::vector<poligon> poligons;
     
     /**
      This function demonstrates the movement of a body along the Oz axis.
@@ -107,6 +108,8 @@ public:
     
     
     void gravityTick(double tick, double tickPerSecond, int idOfObject);
+
+    void update(double tickPerSecond);
 };
 
 #endif /* NAGENobject_hpp */

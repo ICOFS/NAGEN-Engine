@@ -10,7 +10,7 @@
 
 #include "NAGENobject.hpp"
 #include "render.hpp"
-#include "vertex.hpp"
+#include "mesh.hpp"
 #include "objc/button.hpp"
 // #include "globalConsts.h"
 

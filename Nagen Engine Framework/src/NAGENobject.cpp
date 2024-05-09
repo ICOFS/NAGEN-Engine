@@ -91,10 +91,11 @@ void NAGENobject::gravityTick(double tick, double tickPerSecond, int idOfObject)
 
     zCoordinate += zSpeed/tickPerSecond;
 
-    if (zCoordinate < 0.5) {
-        zCoordinate = 0.5;
+    if (zCoordinate < zSize/2) {
+        zCoordinate = zSize/2;
     }
 
     zSpeed = -(zCoordinateOld - zCoordinate)*tickPerSecond;
 }
 
+void update();
