@@ -10,19 +10,24 @@
 //
 
 #include "../../Game/myGame.hpp"
+#include <SFML/Graphics.hpp>
 
 void init(std::string PATH, std::string NAME);
 
-int main() {
-    myGame myGameEng;
 
+int main() {
+    // Initialize the game scene
     scene localSceneEng = myGame::gameInitialization();
 
-    while (localSceneEng.tick <= 5 * localSceneEng.tickPerSecond) {
-        myGame::gameLoop(localSceneEng);
+    // Create a window for rendering
+    sf::RenderWindow window(sf::VideoMode(800, 600), myGame::nameofwindow);
+    sf::View camera(sf::FloatRect(0.f, 0.f, 800.f, 600.f));
+
+    // MAIN LOOP
+    while (window.isOpen()) {
+        myGame::gameLoop(localSceneEng, window, camera);
     }
 
-//    init(myGameEng.pathtoicon, myGameEng.nameofwindow);
     return 0;
 }
 

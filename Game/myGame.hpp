@@ -8,18 +8,20 @@
 #define NAGEN_ENGINE_MYGAME_HPP
 
 #include <engine.hpp>
+#include <SFML/Graphics.hpp>
+
 
 struct scene {
     int id;
-    int tick;
-    double tickPerSecond;
-    std::vector<class NAGENobject> NagenObjectList;
+    int tick = 0;
+    int tickPerSecond;
+    std::vector<NAGENobject> NagenObjectList;
 };
 
 class myGame {
 public:
     static scene gameInitialization();
-    static int gameLoop(scene & localScene);
+    static int gameLoop(scene & localScene, sf::RenderWindow &window, sf::View &camera);
 
     static std::string pathtoicon;
     static std::string nameofwindow;
