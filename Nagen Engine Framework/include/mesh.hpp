@@ -22,4 +22,18 @@ struct vertex {
     double zCoordinate;
 };
 
+struct poligon {
+    double xCoordinate1;
+    double yCoordinate1;
+    double zCoordinate1;
+
+    double xCoordinate2;
+    double yCoordinate2;
+    double zCoordinate2;
+
+    double xCoordinate3;
+    double yCoordinate3;
+    double zCoordinate3;
+};
+
 #endif /* vertex_h */
