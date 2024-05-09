@@ -12,12 +12,7 @@ add_library( Nagen_Engine_Framework STATIC
         "src/NAGENobject.cpp"
         "include/NAGENobject.hpp"
 
-        "src/render.cpp"
-        "include/render.hpp"
-
         "include/globalConsts.h"
-
-        "include/NAGEN Engine-Bridging-Header.h"
 
         "include/mesh.hpp"
 )

@@ -20,7 +20,6 @@ class myGame {
 public:
     static scene gameInitialization();
     static int gameLoop(scene & localScene);
-    static int render();
 
     static std::string pathtoicon;
     static std::string nameofwindow;
