@@ -43,8 +43,7 @@ int myGame::gameLoop(scene &localScene, sf::RenderWindow &window, sf::View &came
         localScene.NagenObjectList.at(idOfObject).gravityTick(localScene.tick, localScene.tickPerSecond, idOfObject);
     }
 
-
-    sf::Event event;
+    sf::Event event = {};
     while (window.pollEvent(event)) {
         if (event.type == sf::Event::Closed)
             window.close();
@@ -73,6 +72,7 @@ int myGame::gameLoop(scene &localScene, sf::RenderWindow &window, sf::View &came
         camera.zoom(0.999f); // Zoom in
     }
 
+    // Render the scene
     window.clear(sf::Color::Black);
     window.setView(camera);
 
