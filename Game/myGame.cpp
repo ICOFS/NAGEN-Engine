@@ -16,9 +16,9 @@ scene myGame::gameInitialization() {
     localScene.tickPerSecond = 1000;
 
     NAGENobject Object1;
-    Object1.xCoordinate = 0;
-    Object1.yCoordinate = 300;
-    Object1.zCoordinate = 100;
+    Object1.xCoordinate = 300;
+    Object1.yCoordinate = 0;
+    Object1.zCoordinate = 1000;
     Object1.xSpeed = 0;
     Object1.ySpeed = 0;
     Object1.zSpeed = 0;
@@ -27,6 +27,20 @@ scene myGame::gameInitialization() {
     Object1.zSize = 1;
 
     localScene.NagenObjectList.push_back(Object1);
+
+
+    NAGENobject Object2;
+    Object2.xCoordinate = 400;
+    Object2.yCoordinate = 0;
+    Object2.zCoordinate = 1000;
+    Object2.xSpeed = 0;
+    Object2.ySpeed = 0;
+    Object2.zSpeed = 0;
+    Object2.xSize = 1;
+    Object2.ySize = 1;
+    Object2.zSize = 1;
+
+    localScene.NagenObjectList.push_back(Object2);
 
     return localScene;
 }
@@ -42,35 +56,6 @@ scene myGame::gameLoop(scene &localScene, sf::RenderWindow &window, sf::View &ca
     for (int idOfObject = 0; idOfObject < localScene.NagenObjectList.size(); idOfObject++)
     {
         localScene.NagenObjectList.at(idOfObject).gravityTick(localScene.tick, localScene.tickPerSecond, idOfObject);
-    }
-
-    sf::Event event = {};
-    while (window.pollEvent(event)) {
-        if (event.type == sf::Event::Closed)
-            window.close();
-    }
-
-    // Control the camera with keyboard
-    float cameraSpeed = 0.5;
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-        camera.move(-cameraSpeed, 0);
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-        camera.move(cameraSpeed, 0);
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-        camera.move(0, -cameraSpeed);
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-        camera.move(0, cameraSpeed);
-    }
-
-    // Zoom the camera with Q and E
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
-        camera.zoom(1.001f); // Zoom out
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
-        camera.zoom(0.999f); // Zoom in
     }
 
     localScene.tick++;

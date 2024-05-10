@@ -10,13 +10,18 @@
 //
 
 #include "../../Game/myGame.hpp"
+
 #include "renderer.hpp"
+#include "controller.hpp"
+
 #include <SFML/Graphics.hpp>
 
 int main() {
     // Initialize the game scene
     scene localSceneEng = myGame::gameInitialization();
+
     renderer render;
+    controller control;
 
     // Create a window for rendering
     sf::RenderWindow window(sf::VideoMode(800, 600), myGame::nameofwindow);
@@ -25,6 +30,7 @@ int main() {
     // MAIN LOOP
     while (window.isOpen()) {
         localSceneEng = myGame::gameLoop(localSceneEng, window, camera);
+        control.control(&camera);
         render.renderScene(&localSceneEng, &window, &camera);
     }
 
