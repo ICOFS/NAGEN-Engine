@@ -10,10 +10,9 @@
 #include <engine.hpp>
 #include <SFML/Graphics.hpp>
 
-
 struct scene {
     int id;
-    int tick = 0;
+    int tick;
     int tickPerSecond;
     std::vector<NAGENobject> NagenObjectList;
 };
@@ -21,7 +20,7 @@ struct scene {
 class myGame {
 public:
     static scene gameInitialization();
-    static int gameLoop(scene & localScene, sf::RenderWindow &window, sf::View &camera);
+    static scene gameLoop(scene & localScene, sf::RenderWindow &window, sf::View &camera);
 
     static std::string pathtoicon;
     static std::string nameofwindow;

@@ -10,7 +10,5 @@
 
 #include "NAGENobject.hpp"
 #include "mesh.hpp"
-// #include "globalConsts.h"
-
 
 #endif //NAGEN_ENGINE_ENGINE_HPP

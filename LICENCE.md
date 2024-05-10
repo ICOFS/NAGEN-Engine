@@ -1,6 +1,6 @@
 # The Farmat Open Source License (FOSL)
 
-Version 1.0, 2023-11-11
+Version 1.1, 2024-05-10
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to use, modify, and distribute the Software, provided that the following conditions are met:
 
@@ -16,7 +16,9 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 
 By using, modifying, or distributing the Software, you agree to abide by the terms and conditions of this license. If you do not agree with these terms, you are not authorized to use, modify, or distribute the Software.
 
-Faramt team
+
 https://github.com/Farmat-organization
-https://farmat-team.github.io
+
+https://icofs-team.github.io
+
 https://farmat-team.github.io/licences/FOSL.html

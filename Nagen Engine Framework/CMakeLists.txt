@@ -15,6 +15,8 @@ add_library( Nagen_Engine_Framework STATIC
         "include/globalConsts.h"
 
         "include/mesh.hpp"
+        "src/renderer.cpp"
+        "src/renderer.hpp"
 )
 
 target_include_directories( Nagen_Engine_Framework PUBLIC

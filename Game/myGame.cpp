@@ -12,6 +12,7 @@ std::string myGame::nameofwindow = "Nagen Engine";
 scene myGame::gameInitialization() {
     scene localScene;
     localScene.id = 1;
+    localScene.tick = 0;
     localScene.tickPerSecond = 1000;
 
     NAGENobject Object1;
@@ -31,7 +32,7 @@ scene myGame::gameInitialization() {
 }
 
 
-int myGame::gameLoop(scene &localScene, sf::RenderWindow &window, sf::View &camera) {
+scene myGame::gameLoop(scene &localScene, sf::RenderWindow &window, sf::View &camera) {
     std::cout << "\n====================================\n";
     std::cout << "ID of scene:        " << localScene.id << std::endl;
     std::cout << "Tick number:        " << localScene.tick << std::endl;
@@ -72,25 +73,6 @@ int myGame::gameLoop(scene &localScene, sf::RenderWindow &window, sf::View &came
         camera.zoom(0.999f); // Zoom in
     }
 
-    // Render the scene
-    window.clear(sf::Color::Black);
-    window.setView(camera);
-
-    // Draw all NAGENobjects as points
-    for (auto &object : localScene.NagenObjectList) {
-        sf::CircleShape shape(5);  // Radius of 5 for visibility
-        shape.setFillColor(sf::Color::Red);
-
-        // Set the position of the shape based on the object's coordinates
-        shape.setPosition(object.xCoordinate, object.zCoordinate);
-
-        // Draw the shape
-        window.draw(shape);
-    }
-
-    window.display();
-
     localScene.tick++;
-
-    return 0;
+    return localScene;
 }
