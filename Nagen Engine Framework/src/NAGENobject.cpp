@@ -32,70 +32,42 @@ void NAGENobject::moveStraight(double length) {
     zCoordinate = zCoordinate + zAdditive;
 
     std::cout << xCoordinate << std::endl << yCoordinate << std::endl << zCoordinate << std::endl;
-};
-
+}
 
 void NAGENobject::rotate(double theta, double phi) {
     double circle = Pi*2;
     phiAngle = std::fmod(phiAngle+phi, circle);
     thetaAngle = std::fmod(thetaAngle+theta, circle);
-};
-
-
-void NAGENobject::EarthGravityDemo(double tickPerSecond) {
-    double tick = 0;
-//    double locEarthG = EarthG/3*2;
-    
-    
-    while (tick < 15 * tickPerSecond) {
-        std::cout << tick/tickPerSecond << std::endl;
-        std::cout << "x: " << xCoordinate << " " << xSpeed << std::endl;
-        std::cout << "y: " << yCoordinate << " " << ySpeed << std::endl;
-        std::cout << "z: " << zCoordinate << " " << zSpeed << std::endl;
-
-        tick++;
-
-        double zCoordinateOld = zCoordinate;
-
-        zSpeed -= EarthG / tickPerSecond;
-
-        if (zCoordinate + zSize <= 0) {
-            zSpeed = 0;
-        }
-
-        zCoordinate += zSpeed/tickPerSecond;
-
-        if (zCoordinate < 0.5) {
-            zCoordinate = 0.5;
-        }
-
-        zSpeed = -(zCoordinateOld - zCoordinate)*tickPerSecond;
-    }
 }
 
-void NAGENobject::gravityTick(double tick, double tickPerSecond, int idOfObject) {
+
+double NAGENobject::gravityTick(double tickPerSecond) {
+    return (EarthG / tickPerSecond);
+}
+
+
+
+
+void NAGENobject::update(double tickPerSecond, int idOfObject) {
+    double zCoordinateOld = zCoordinate;
+
+    // Update speed based on gravity
+    zSpeed -= gravityTick(tickPerSecond);
+
+    // Update position based on speed and time
+    zCoordinate += zSpeed / tickPerSecond;
+
+    // Check if the object has reached the ground
+    if (zCoordinate < zSize / 2) {
+        zCoordinate = zSize / 2;
+        zSpeed = 0;
+    }
+
+    // Update speed based on position change and time
+    zSpeed = -(zCoordinateOld - zCoordinate) * tickPerSecond;
+
     std::cout << "ID: " << idOfObject << std::endl;
     std::cout << "x:  " << xCoordinate << "\t" << xSpeed << std::endl;
     std::cout << "y:  " << yCoordinate << "\t" << ySpeed << std::endl;
     std::cout << "z:  " << zCoordinate << "\t" << zSpeed << std::endl;
-
-    tick++;
-
-    double zCoordinateOld = zCoordinate;
-
-    zSpeed -= EarthG / tickPerSecond;
-
-    if (zCoordinate + zSize <= 0) {
-        zSpeed = 0;
-    }
-
-    zCoordinate += zSpeed/tickPerSecond;
-
-    if (zCoordinate < zSize/2) {
-        zCoordinate = zSize/2;
-    }
-
-    zSpeed = -(zCoordinateOld - zCoordinate)*tickPerSecond;
 }
-
-void update();

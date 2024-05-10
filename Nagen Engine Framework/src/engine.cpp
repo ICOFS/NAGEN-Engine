@@ -25,7 +25,13 @@ int main() {
 
     // Create a window for rendering
     sf::RenderWindow window(sf::VideoMode(800, 600), myGame::nameofwindow);
-    sf::View camera(sf::FloatRect(0.f, 0.f, 800.f, 600.f));
+    sf::Image icon;
+    if (!icon.loadFromFile(myGame::pathtoicon)) {
+        std::cout << "ERROR: ICON\n";
+    }
+    window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
+
+    sf::View camera(sf::FloatRect(0, 0, 800, 600));
 
     // MAIN LOOP
     while (window.isOpen()) {

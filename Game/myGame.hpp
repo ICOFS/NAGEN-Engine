@@ -12,7 +12,7 @@
 
 struct scene {
     int id;
-    int tick;
+    int tick = 0;
     int tickPerSecond;
     std::vector<NAGENobject> NagenObjectList;
 };

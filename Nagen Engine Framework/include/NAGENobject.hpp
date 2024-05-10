@@ -65,14 +65,14 @@ public:
     double zSize;
     
     double mass;
-    
+
     double xSpeed;
     double ySpeed;
     double zSpeed;
-    
+
     double temperature;
     
-    std::vector<mesh> vertexes;
+    std::vector<vertex> vertexes;
     std::vector<poligon> poligons;
     
     /**
@@ -96,20 +96,10 @@ public:
      
      */
     void rotate(double theta, double phi);
-    
-    /**
-     This function demonstrates a body falling from a height.
 
-     Values such as speed and body position are displayed for each second separately.
+    double gravityTick(double tickPerSecond);
 
-     The function does not take into account air resistance.
-     */
-    void EarthGravityDemo(double tickPerSecond);
-    
-    
-    void gravityTick(double tick, double tickPerSecond, int idOfObject);
-
-    void update(double tickPerSecond);
+    void update(double tickPerSecond, int idOfObject);
 };
 
 #endif /* NAGENobject_hpp */

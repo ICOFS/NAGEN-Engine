@@ -17,8 +17,8 @@ add_library( Nagen_Engine_Framework STATIC
         "include/mesh.hpp"
         "src/renderer.cpp"
         "src/renderer.hpp"
-        src/controller.cpp
-        src/controller.hpp
+        "src/controller.cpp"
+        "src/controller.hpp"
 )
 
 target_include_directories( Nagen_Engine_Framework PUBLIC
