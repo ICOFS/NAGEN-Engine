@@ -22,9 +22,6 @@ void renderer::renderScene(scene *localScene, sf::RenderWindow *window, sf::View
             shape.setPosition(
                     window->getSize().y - (object.xCoordinate + vertex.xCoordinate),
                     window->getSize().x - (object.zCoordinate + vertex.zCoordinate)
-
-//                    window->getSize().y - object.xCoordinate,
-//                    window->getSize().x - object.zCoordinate
             );
 
             while (window->pollEvent(event)) {
@@ -45,6 +42,9 @@ void renderer::renderScene(scene *localScene, sf::RenderWindow *window, sf::View
             // Draw the shape
             window->draw(shape);
         }
+
     }
     window->display();
 }
+
+renderer::~renderer() {}

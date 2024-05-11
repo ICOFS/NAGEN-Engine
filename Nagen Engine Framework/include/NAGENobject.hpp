@@ -56,21 +56,23 @@ public:
     double xCoordinate;
     double yCoordinate;
     double zCoordinate;
-    
+
     double phiAngle;
     double thetaAngle;
-    
+
     double xSize;
     double ySize;
     double zSize;
-    
-    double mass;
+
+    float mass;
 
     double xSpeed;
     double ySpeed;
     double zSpeed;
 
-    double temperature;
+    float coefOfRestitution;
+
+    float temperature;
     
     std::vector<vertex> vertexes;
     std::vector<poligon> poligons;
@@ -97,7 +99,7 @@ public:
      */
     void rotate(double theta, double phi);
 
-    double gravityTick(double tickPerSecond);
+    float gravityTick(double tickPerSecond);
 
     void update(double tickPerSecond, int idOfObject);
 };

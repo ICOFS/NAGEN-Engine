@@ -4,6 +4,7 @@
 //
 //  Created by Farmat on 2023-11-19.
 //
+
 #include <cmath>
 #include <iostream>
 
@@ -41,30 +42,27 @@ void NAGENobject::rotate(double theta, double phi) {
 }
 
 
-double NAGENobject::gravityTick(double tickPerSecond) {
+float NAGENobject::gravityTick(double tickPerSecond) {
     return (EarthG / tickPerSecond);
 }
 
 
-
-
 void NAGENobject::update(double tickPerSecond, int idOfObject) {
-    double zCoordinateOld = zCoordinate;
-
     // Update speed based on gravity
     zSpeed -= gravityTick(tickPerSecond);
 
+
+
     // Update position based on speed and time
+    xCoordinate += xSpeed / tickPerSecond;
+    yCoordinate += ySpeed / tickPerSecond;
     zCoordinate += zSpeed / tickPerSecond;
 
     // Check if the object has reached the ground
-    if (zCoordinate < zSize / 2) {
+    if (zCoordinate <= zSize / 2) {
         zCoordinate = zSize / 2;
-        zSpeed = 0;
+        zSpeed *= -coefOfRestitution;
     }
-
-    // Update speed based on position change and time
-    zSpeed = -(zCoordinateOld - zCoordinate) * tickPerSecond;
 
     std::cout << "ID: " << idOfObject << std::endl;
     std::cout << "x:  " << xCoordinate << "\t" << xSpeed << std::endl;

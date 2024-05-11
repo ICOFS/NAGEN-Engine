@@ -10,6 +10,7 @@
 class renderer {
 public:
     void renderScene(scene *localScene, sf::RenderWindow *window, sf::View *camera);
+    ~renderer();
 };
 
 #endif //NAGEN_ENGINE_RENDERER_HPP

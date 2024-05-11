@@ -19,22 +19,30 @@ scene myGame::gameInitialization() {
     Object1.xCoordinate = 300;
     Object1.yCoordinate = 0;
     Object1.zCoordinate = 200;
-    Object1.xSpeed = 0;
+    Object1.phiAngle = 0;
+    Object1.thetaAngle = 0;
+    Object1.xSpeed = 10;
     Object1.ySpeed = 0;
     Object1.zSpeed = 100;
     Object1.xSize = 1;
     Object1.ySize = 1;
     Object1.zSize = 1;
 
+    Object1.temperature = 1;
+
+    Object1.mass = 1;
+
+    Object1.coefOfRestitution = 0.1;
+
 
     vertex v1 = {};
-    v1.xCoordinate = 1;
-    v1.yCoordinate = 1;
+    v1.xCoordinate = 2;
+    v1.yCoordinate = 2;
     v1.zCoordinate = 2;
 
     vertex v2 = {};
-    v1.xCoordinate = -1;
-    v1.yCoordinate = -1;
+    v1.xCoordinate = -2;
+    v1.yCoordinate = -2;
     v1.zCoordinate = -2;
 
 
