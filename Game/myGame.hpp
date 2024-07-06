@@ -20,7 +20,7 @@ struct scene {
 class myGame {
 public:
     static scene gameInitialization();
-    static scene gameLoop(scene & localScene, sf::RenderWindow &window, sf::View &camera);
+    static scene gameLoop(scene & localScene, sf::RenderWindow &window);
 
     static std::string pathtoicon;
     static std::string nameofwindow;

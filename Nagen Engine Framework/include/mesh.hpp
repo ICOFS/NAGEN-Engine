@@ -11,9 +11,9 @@
 #define vertex_h
 
 struct vertex {
-    double xCoordinate;
-    double yCoordinate;
-    double zCoordinate;
+    float xCoordinate;
+    float yCoordinate;
+    float zCoordinate;
 };
 
 struct poligon {

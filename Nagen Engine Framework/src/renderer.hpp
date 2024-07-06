@@ -7,9 +7,11 @@
 
 #include "../../Game/myGame.hpp"
 
+#include "../include/player.hpp"
+
 class renderer {
 public:
-    void renderScene(scene *localScene, sf::RenderWindow *window, sf::View *camera);
+    void renderScene(scene *localScene, sf::RenderWindow *window, Player *player);
     ~renderer();
 };
 

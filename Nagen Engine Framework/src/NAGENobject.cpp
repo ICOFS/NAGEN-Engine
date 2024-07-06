@@ -9,7 +9,7 @@
 #include <iostream>
 
 #include "../include/NAGENobject.hpp"
- #include "../include/globalConsts.h"
+#include "../include/globalConsts.h"
 
 void NAGENobject::moveStraight(double length) {
     

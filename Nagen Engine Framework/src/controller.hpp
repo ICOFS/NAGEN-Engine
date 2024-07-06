@@ -7,9 +7,13 @@
 
 #include <SFML/Graphics.hpp>
 
+#include <../include/player.hpp>
+
+#include "../../Game/myGame.hpp"
+
 class controller {
 public:
-    void control(sf::View *camera);
+    static void control(Player *player, scene *localScene);
 };
 
 
