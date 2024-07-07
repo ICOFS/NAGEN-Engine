@@ -13,6 +13,13 @@
 
 class controller {
 public:
+    /// \brief Controls the player's movement and viewing angle based on keyboard input.
+    ///
+    /// This function checks for specific keyboard keys being pressed and updates
+    /// the player's position and orientation within the game scene accordingly.
+    ///
+    /// \param player A pointer to the player object, allowing modification of its position and angle.
+    /// \param localScene  A pointer to the scene object (currently unused, but could be used for collision detection in the future).
     static void control(Player *player, scene *localScene);
 };
 

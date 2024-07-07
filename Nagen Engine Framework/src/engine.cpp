@@ -1,5 +1,6 @@
 //
 //  main.cpp
+//
 //  Nagen Engine Framework
 //
 //  Copyright 2023 — 2024 ICOFS
@@ -21,39 +22,25 @@ int main() {
     scene localSceneEng = myGame::gameInitialization();
 
     renderer render;
-    controller control;
 
     // Create a window for rendering
     sf::ContextSettings settings;
-    settings.antialiasingLevel = 0;
-    sf::RenderWindow window(sf::VideoMode(800, 600), myGame::nameofwindow, sf::Style::Default, settings);
+    sf::RenderWindow window(sf::VideoMode(800, 600), myGame::nameOfWindow, sf::Style::Fullscreen, settings);
+    window.setFramerateLimit(localSceneEng.tickPerSecond);
 
 
-    /*
-
-    sf::Image icon;
-    if (!icon.loadFromFile(myGame::pathtoicon)) {
-        std::cout << "ERROR: ICON\n";
-    }// else {
-        window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
-    //}
-
-     */
-
-//    sf::View camera(sf::FloatRect(0, 0, 800, 600));
-
+    // Create player
     Player player;
 
+    player.pSpeed = (1.3f / float(localSceneEng.tickPerSecond));
     player.x = 0;
     player.y = -10;
     player.z = 0;
 
-    window.setFramerateLimit(localSceneEng.tickPerSecond);
-
-    // MAIN LOOP
+    // Main loop
     while (window.isOpen()) {
         localSceneEng = myGame::gameLoop(localSceneEng);
-        control.control(&player, &localSceneEng);
+        controller::control(&player, &localSceneEng);
         render.renderScene(&localSceneEng, &window, &player);
     }
 

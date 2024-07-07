@@ -12,7 +12,6 @@
 #include "../include/globalConsts.h"
 
 void NAGENobject::moveStraight(double length) {
-    
     double xAdditive = length * sin(thetaAngle) * cos(phiAngle);
     double yAdditive = length * sin(thetaAngle) * sin (phiAngle);
     double zAdditive = length * cos(thetaAngle);

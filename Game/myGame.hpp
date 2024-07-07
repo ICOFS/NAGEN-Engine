@@ -22,8 +22,8 @@ public:
     static scene gameInitialization();
     static scene gameLoop(scene & localScene);
 
-    static std::string pathtoicon;
-    static std::string nameofwindow;
+    static std::string pathToIcon;
+    static std::string nameOfWindow;
 
 };
 

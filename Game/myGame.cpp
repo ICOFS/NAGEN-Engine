@@ -5,8 +5,8 @@
 #include "myGame.hpp"
 #include <iostream>
 
-std::string myGame::pathtoicon = "../Game/icon.png";
-std::string myGame::nameofwindow = "Nagen Engine";
+std::string myGame::pathToIcon = "../Game/icon.png";
+std::string myGame::nameOfWindow = "Nagen Engine";
 
 scene myGame::gameInitialization() {
     scene localScene;
@@ -20,7 +20,7 @@ scene myGame::gameInitialization() {
     Coordinates.zCoordinate = 0;
     Coordinates.xSpeed = 0;
     Coordinates.ySpeed = 0;
-    Coordinates.zSpeed = 0;
+    Coordinates.zSpeed = 10;
     Coordinates.xSize = 0;
     Coordinates.ySize = 0;
     Coordinates.zSize = 0;
@@ -44,9 +44,9 @@ scene myGame::gameInitialization() {
     Coordinates.edges.push_back(e4);
 
     polygon p1_4 = {v1_C, v1_X, v1_Y};
-    polygon p2_4 = {v1_C, v1_X, v1_Z};
-    polygon p3_4 = {v1_C, v1_Y, v1_Z};
-    polygon p4_4 = {v1_X, v1_Y, v1_Z};
+    polygon p2_4 = {v1_C, v1_Z, v1_X};
+    polygon p3_4 = {v1_Y, v1_Z, v1_C};
+    polygon p4_4 = {v1_Y, v1_X, v1_Z};
 
     Coordinates.polygons.push_back(p1_4);
     Coordinates.polygons.push_back(p2_4);

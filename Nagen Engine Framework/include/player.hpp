@@ -11,6 +11,9 @@
 class Player {
 public:
     float x = 0, y = 0, z = 0, angle = 0;
+
+    float pSpeed = 0;
+
     void move(float dx, float dy, float dz) {
         x += dx * std::cos(angle) - dy * std::sin(angle);
         y += dx * std::sin(angle) + dy * std::cos(angle);

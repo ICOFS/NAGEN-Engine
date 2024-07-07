@@ -102,7 +102,7 @@ public:
      */
     void rotate(double theta, double phi);
 
-    float gravityTick(double tickPerSecond);
+    static float gravityTick(double tickPerSecond);
 
     void update(double tickPerSecond, int idOfObject);
 };
