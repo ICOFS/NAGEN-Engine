@@ -12,6 +12,7 @@
 
 #include <cstdio>
 #include <vector>
+#include <map>
 
 #include "mesh.hpp"
 
@@ -74,9 +75,11 @@ public:
 
     float temperature;
     
-    std::vector<vertex> vertexes;
-    std::vector<poligon> poligons;
-    
+    std::vector<vertex> vertices;
+    std::vector<edge> edges;
+    std::vector<polygon> polygons;
+
+
     /**
      This function demonstrates the movement of a body along the Oz axis.
       

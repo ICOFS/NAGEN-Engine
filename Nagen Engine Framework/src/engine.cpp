@@ -24,7 +24,10 @@ int main() {
     controller control;
 
     // Create a window for rendering
-    sf::RenderWindow window(sf::VideoMode(800, 600), myGame::nameofwindow);
+    sf::ContextSettings settings;
+    settings.antialiasingLevel = 0;
+    sf::RenderWindow window(sf::VideoMode(800, 600), myGame::nameofwindow, sf::Style::Default, settings);
+
 
     /*
 
@@ -41,11 +44,15 @@ int main() {
 
     Player player;
 
+    player.x = 0;
+    player.y = -10;
+    player.z = 0;
+
     window.setFramerateLimit(localSceneEng.tickPerSecond);
 
     // MAIN LOOP
     while (window.isOpen()) {
-        localSceneEng = myGame::gameLoop(localSceneEng, window);
+        localSceneEng = myGame::gameLoop(localSceneEng);
         control.control(&player, &localSceneEng);
         render.renderScene(&localSceneEng, &window, &player);
     }

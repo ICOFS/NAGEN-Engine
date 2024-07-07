@@ -1,74 +1,137 @@
-//
-// Created by Farmat on 2024-05-10.
-//
-
 #include "renderer.hpp"
+
 #include <SFML/Graphics.hpp>
 #include <cmath>
 #include <vector>
 
-// Function to render the scene
 void renderer::renderScene(scene *localScene, sf::RenderWindow *window, Player *player) {
-    // Clear the window with a black color
     window->clear(sf::Color::Black);
 
-    // Create a camera view that matches the window size
     sf::View camera(window->getDefaultView());
-
-    // Vector to store the projected points
     std::vector<sf::Vector2f> projectedPoints;
 
-    // Handle window events
-    sf::Event event;
+    sf::Event event{};
     while (window->pollEvent(event)) {
         if (event.type == sf::Event::Closed) {
-            // Close the window if the close event is triggered
             window->close();
         } else if (event.type == sf::Event::Resized) {
-            // Adjust the camera view if the window is resized
             camera.setSize(static_cast<float>(event.size.width), static_cast<float>(event.size.height));
             camera.setCenter(static_cast<float>(event.size.width) / 2, static_cast<float>(event.size.height) / 2);
             window->setView(camera);
         }
     }
 
-    // Iterate over each object in the scene
     for (auto &object : localScene->NagenObjectList) {
-        // Iterate over each vertex of the current object
-        for (auto &vertex : object.vertexes) {
-            // Calculate the relative position of the vertex from the player
+        projectedPoints.clear();
+
+        for (auto &vertex : object.vertices) {
             float x = object.xCoordinate + vertex.xCoordinate - player->x;
             float y = object.yCoordinate + vertex.yCoordinate - player->y;
             float z = object.zCoordinate + vertex.zCoordinate - player->z;
 
-            // Apply rotation based on the player's angle
             float rx = x * std::cos(player->angle) + y * std::sin(player->angle);
             float ry = -x * std::sin(player->angle) + y * std::cos(player->angle);
 
-            // Perform projection only if the point is in front of the camera (positive ry)
             if (ry > 0) {
-                float scale = 600 / ry; // Adjust the scale factor for perspective
-                int sx = static_cast<int>(-rx * scale) + window->getSize().x / 2; // Invert the x-axis
-                int sy = static_cast<int>(-z * scale) + window->getSize().y / 2; // Invert the z-axis
-
-                // Store the projected point
+                float scale = 600 / ry;
+                int sx = static_cast<int>(-rx * scale) + window->getSize().x / 2;
+                int sy = static_cast<int>(-z * scale) + window->getSize().y / 2;
                 projectedPoints.emplace_back(sx, sy);
-
-                // Draw the vertex as a small circle
-                sf::CircleShape shape(3); // Radius of 3 for better visibility
-                shape.setPosition(sx - shape.getRadius(), sy - shape.getRadius()); // Center the circle at the projected point
-                shape.setFillColor(sf::Color::Red); // Set the color to red for the vertex
-                window->draw(shape);
             } else {
-                // Point is behind the camera
-                projectedPoints.emplace_back(-1, -1);
+                projectedPoints.emplace_back(-1.0f, -1.0f);
+            }
+        }
+
+        for (const auto &edge : object.edges) {
+            float x1 = object.xCoordinate + edge.v1.xCoordinate - player->x;
+            float y1 = object.yCoordinate + edge.v1.yCoordinate - player->y;
+            float z1 = object.zCoordinate + edge.v1.zCoordinate - player->z;
+
+            float rx1 = x1 * std::cos(player->angle) + y1 * std::sin(player->angle);
+            float ry1 = -x1 * std::sin(player->angle) + y1 * std::cos(player->angle);
+
+            sf::Vector2f projectedPoint1(-1.0f, -1.0f);
+            if (ry1 > 0) {
+                float scale1 = 600 / ry1;
+                int sx1 = static_cast<int>(-rx1 * scale1) + window->getSize().x / 2;
+                int sy1 = static_cast<int>(-z1 * scale1) + window->getSize().y / 2;
+                projectedPoint1 = sf::Vector2f(sx1, sy1);
+            }
+
+            float x2 = object.xCoordinate + edge.v2.xCoordinate - player->x;
+            float y2 = object.yCoordinate + edge.v2.yCoordinate - player->y;
+            float z2 = object.zCoordinate + edge.v2.zCoordinate - player->z;
+
+            float rx2 = x2 * std::cos(player->angle) + y2 * std::sin(player->angle);
+            float ry2 = -x2 * std::sin(player->angle) + y2 * std::cos(player->angle);
+
+            sf::Vector2f projectedPoint2(-1.0f, -1.0f);
+            if (ry2 > 0) {
+                float scale2 = 600 / ry2;
+                int sx2 = static_cast<int>(-rx2 * scale2) + window->getSize().x / 2;
+                int sy2 = static_cast<int>(-z2 * scale2) + window->getSize().y / 2;
+                projectedPoint2 = sf::Vector2f(sx2, sy2);
+            }
+
+            /*
+            if (projectedPoint1 != sf::Vector2f(-1.0f, -1.0f) && projectedPoint2 != sf::Vector2f(-1.0f, -1.0f)) {
+                sf::Vertex line[] = {
+                        sf::Vertex(projectedPoint1, sf::Color::Green),
+                        sf::Vertex(projectedPoint2, sf::Color::Green)
+                };
+                window->draw(line, 2, sf::Lines);
+            }
+            */
+        }
+
+        for (const auto &polygon : object.polygons) {
+            std::vector<sf::Vector2f> points;
+
+            auto project = [&](const vertex& vert) -> sf::Vector2f {
+                float x = object.xCoordinate + vert.xCoordinate - player->x;
+                float y = object.yCoordinate + vert.yCoordinate - player->y;
+                float z = object.zCoordinate + vert.zCoordinate - player->z;
+
+                float rx = x * std::cos(player->angle) + y * std::sin(player->angle);
+                float ry = -x * std::sin(player->angle) + y * std::cos(player->angle);
+
+                if (ry > 0) {
+                    float scale = 600 / ry;
+                    int sx = static_cast<int>(-rx * scale) + window->getSize().x / 2;
+                    int sy = static_cast<int>(-z * scale) + window->getSize().y / 2;
+                    return sf::Vector2f(sx, sy);
+                } else {
+                    return sf::Vector2f(-1.0f, -1.0f);
+                }
+            };
+
+            points.push_back(project(polygon.first));
+            points.push_back(project(polygon.second));
+            points.push_back(project(polygon.third));
+
+            if (std::all_of(points.cbegin(), points.cend(), [](const sf::Vector2f& p) { return p != sf::Vector2f(-1.0f, -1.0f); })) {
+                sf::ConvexShape shape(3);
+                for (size_t i = 0; i < points.size(); ++i) {
+                    shape.setPoint(i, points[i]);
+                }
+                shape.setFillColor(sf::Color(255, 0, 255, 80));
+                shape.setOutlineColor(sf::Color::Magenta);
+                shape.setOutlineThickness(1.0f);
+                window->draw(shape);
+            }
+        }
+
+        for (const auto &projectedPoint : projectedPoints) {
+            if (projectedPoint != sf::Vector2f(-1.0f, -1.0f)) {
+                sf::CircleShape shape(3);
+                shape.setPosition(projectedPoint.x - shape.getRadius(), projectedPoint.y - shape.getRadius());
+                shape.setFillColor(sf::Color::Red);
+                window->draw(shape);
             }
         }
     }
 
-    // Display the rendered frame
     window->display();
 }
 
-// Destructor for the renderer class
 renderer::~renderer() = default;

@@ -16,10 +16,15 @@ struct vertex {
     float zCoordinate;
 };
 
-struct poligon {
+struct polygon {
     vertex first;
     vertex second;
     vertex third;
+};
+
+struct edge {
+    vertex v1;
+    vertex v2;
 };
 
 #endif /* vertex_h */

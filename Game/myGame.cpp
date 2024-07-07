@@ -3,7 +3,6 @@
 //
 
 #include "myGame.hpp"
-#include <SFML/Graphics.hpp>
 #include <iostream>
 
 std::string myGame::pathtoicon = "../Game/icon.png";
@@ -15,95 +14,56 @@ scene myGame::gameInitialization() {
     localScene.tick = 0;
     localScene.tickPerSecond = 60;
 
-//    NAGENobject Object1;
-//    Object1.xCoordinate = 300;
-//    Object1.yCoordinate = 0;
-//    Object1.zCoordinate = 200;
-//    Object1.phiAngle = 0;
-//    Object1.thetaAngle = 0;
-//    Object1.xSpeed = 0;
-//    Object1.ySpeed = 0;
-//    Object1.zSpeed = 100;
-//    Object1.xSize = 1;
-//    Object1.ySize = 1;
-//    Object1.zSize = 1;
-//
-//    Object1.temperature = 1;
-//
-//    Object1.mass = 1;
-//
-//    Object1.coefOfRestitution = 0.1;
-//
-//
-//    vertex v1 = {};
-//    v1.xCoordinate = 2;
-//    v1.yCoordinate = 2;
-//    v1.zCoordinate = 2;
-//
-//    vertex v2 = {};
-//    v1.xCoordinate = -2;
-//    v1.yCoordinate = -2;
-//    v1.zCoordinate = -2;
-//
-//
-//    Object1.vertexes.push_back(v1);
-//    Object1.vertexes.push_back(v2);
-//
-//    localScene.NagenObjectList.push_back(Object1);
-
-
-
-
-
     NAGENobject Coordinates;
     Coordinates.xCoordinate = 0;
     Coordinates.yCoordinate = 0;
     Coordinates.zCoordinate = 0;
     Coordinates.xSpeed = 0;
     Coordinates.ySpeed = 0;
-    Coordinates.zSpeed = 1;
-    Coordinates.xSize = 1;
-    Coordinates.ySize = 1;
-    Coordinates.zSize = 1;
+    Coordinates.zSpeed = 0;
+    Coordinates.xSize = 0;
+    Coordinates.ySize = 0;
+    Coordinates.zSize = 0;
 
-    vertex v1_C = {};
-    v1_C.xCoordinate = 0;
-    v1_C.yCoordinate = 0;
-    v1_C.zCoordinate = 0;
+    vertex v1_C = {0, 0, 0};
+    vertex v1_Z = {0, 0, 1};
+    vertex v1_Y = {0, 1, 0};
+    vertex v1_X = {1, 0, 0};
 
-    vertex v1_Z = {};
-    v1_Z.xCoordinate = 0;
-    v1_Z.yCoordinate = 0;
-    v1_Z.zCoordinate = 1;
+    Coordinates.vertices.push_back(v1_C);
+    Coordinates.vertices.push_back(v1_X);
+    Coordinates.vertices.push_back(v1_Y);
+    Coordinates.vertices.push_back(v1_Z);
 
-    vertex v1_Y = {};
-    v1_Y.xCoordinate = 0;
-    v1_Y.yCoordinate = 1;
-    v1_Y.zCoordinate = 0;
+    edge e2 = {v1_C, v1_X};
+    edge e3 = {v1_C, v1_Y};
+    edge e4 = {v1_C, v1_Z};
 
-    vertex v1_X = {};
-    v1_X.xCoordinate = 1;
-    v1_X.yCoordinate = 0;
-    v1_X.zCoordinate = 0;
+    Coordinates.edges.push_back(e2);
+    Coordinates.edges.push_back(e3);
+    Coordinates.edges.push_back(e4);
 
-    Coordinates.vertexes.push_back(v1_C);
-    Coordinates.vertexes.push_back(v1_X);
-    Coordinates.vertexes.push_back(v1_Y);
-    Coordinates.vertexes.push_back(v1_Z);
+    polygon p1_4 = {v1_C, v1_X, v1_Y};
+    polygon p2_4 = {v1_C, v1_X, v1_Z};
+    polygon p3_4 = {v1_C, v1_Y, v1_Z};
+    polygon p4_4 = {v1_X, v1_Y, v1_Z};
+
+    Coordinates.polygons.push_back(p1_4);
+    Coordinates.polygons.push_back(p2_4);
+    Coordinates.polygons.push_back(p3_4);
+    Coordinates.polygons.push_back(p4_4);
 
     localScene.NagenObjectList.push_back(Coordinates);
 
     return localScene;
 }
 
-
-scene myGame::gameLoop(scene &localScene, sf::RenderWindow &window) {
+scene myGame::gameLoop(scene &localScene) {
     std::cout << "\n====================================\n";
     std::cout << "ID of scene:        " << localScene.id << std::endl;
     std::cout << "Tick number:        " << localScene.tick << std::endl;
     std::cout << "Seconds from start: " << localScene.tick / localScene.tickPerSecond << std::endl;
 
-    // Physic for solid objects
     for (int idOfObject = 0; idOfObject < localScene.NagenObjectList.size(); idOfObject++) {
         localScene.NagenObjectList.at(idOfObject).update(localScene.tickPerSecond, idOfObject);
     }
